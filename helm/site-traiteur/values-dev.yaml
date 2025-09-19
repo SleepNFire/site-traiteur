@@ -2,4 +2,5 @@ replicaCount: 2
 image:
   repository: ghcr.io/sleepnfire/site-traiteur
   tag: dev
-containerPort: 8000
+service:
+  port: 8000
