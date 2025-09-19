@@ -2,3 +2,4 @@ replicaCount: 3
 image:
   repository: ghcr.io/sleepnfire/site-traiteur
   tag: prod
+conternerPort: 8000
