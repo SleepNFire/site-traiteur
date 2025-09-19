@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: site-traiteur-declarative
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: site-traiteur
+  template:
+    metadata:
+      labels:
+        app: site-traiteur
+    spec:
+      containers:
+      - name: site-traiteur
+        image: ghcr.io/sleepnfire/site-traiteur:latest
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: site-traiteur-service
+spec:
+  ports:
+  - port: 8000
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: site-traiteur
