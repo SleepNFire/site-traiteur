@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: site-traiteur-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/sleepnfire/site-traiteur'
+    targetRevision: dev
+    path: helm/site-traiteur      # <-- change en "." si chart à la racine
+    helm:
+      valueFiles:
+        - values-dev.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: dev
+  syncPolicy:
+    # pour prod, tu peux garder auto = false si tu veux validation manuelle
+    automated:
+      prune: true
+      selfHeal: false
