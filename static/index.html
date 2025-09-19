@@ -1,12 +1,12 @@
 <html>
 
 <head>
-    <title> Site d'un traiteur talentueux </title>
+    <title> Site d'un traiteur </title>
 </head>
 
 <body>
-    <h1 id='entete'>Commander vos plats en ligne Sans soucis ! </h1>
-    <p>Que souhaitez-vous commander?</p>
+    <h1 id='entete'>Commander vos plats en ligne ! </h1>
+    <p>Que souhaitez-vous commander pour manger ?</p>
     <div ng-app="myApp" ng-controller="myCtrl">
         <form action="menu/commande" method="post">
             <select name="plat_id" ng-model="selection" ng-options="menu for menu in menus" multiple>
